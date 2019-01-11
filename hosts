@@ -1,3 +1,6 @@
 #localhost ansible_connection=local
 serv1 ansible_host=serv1.gravatt.org
 serv2 ansible_host=serv2.gravatt.org
+
+[nagios-servers]
+serv2

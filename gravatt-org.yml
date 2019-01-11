@@ -2,23 +2,15 @@
 
 ---
 
-- hosts: serv2
+- hosts: nagios-servers
   become: true
   tasks:
-    - copy:
-        src: commands
-        dest: /omd/sites/mon/etc/nagios/conf.d/commands 
-        owner: mon
-        group: mon
-        mode: 0644
+    - include_role:
+        name: gravatt.nagios-commands
 
 - hosts: all
   become: true
   tasks:
-    - copy:
-        src: plugins
-        dest: /usr/local/bin/nagios
-        owner: root
-        group: root
-        mode: 0755
-    
+    - include_role:
+        name: gravatt.nagios-plugins
+      
