@@ -1,0 +1,24 @@
+# vim: tabstop=2 softtabstop=2 expandtab
+
+---
+
+- hosts: serv2
+  become: true
+  tasks:
+    - copy:
+        src: commands
+        dest: /omd/sites/mon/etc/nagios/conf.d/commands 
+        owner: mon
+        group: mon
+        mode: 0644
+
+- hosts: all
+  become: true
+  tasks:
+    - copy:
+        src: plugins
+        dest: /usr/local/bin/nagios
+        owner: root
+        group: root
+        mode: 0755
+    
