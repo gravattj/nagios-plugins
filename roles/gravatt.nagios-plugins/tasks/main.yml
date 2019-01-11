@@ -1,0 +1,13 @@
+---
+
+# temporarily disable because of a rhel6 rpm conflict
+#- yum:
+#    name: nagios-plugins-all
+#    state: latest
+    
+- synchronize:
+    src:   files/
+    dest:  /usr/local/bin/nagios-plugins
+
+- shell: chown -R root:root /usr/local/bin/nagios-plugins
+
