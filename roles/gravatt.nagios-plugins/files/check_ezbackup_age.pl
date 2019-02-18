@@ -26,12 +26,14 @@ my $curr_epoch = time;
 my $stat_epoch = `$cmd`;
 my $diff = $curr_epoch - $stat_epoch;
 
-print "backup is $diff seconds old\n";
+my $msg = "backup is $diff seconds old";
 
 if ($diff > $Crit) {
+	print "CRITICAL: $msg\n";
 	exit 2;
 }
 elsif ($diff > $Warn) {
+	print "WARNING: $msg\n";
 	exit 1;
 }
 

@@ -1,0 +1,16 @@
+# vim: tabstop=2 softtabstop=2 expandtab
+
+---
+
+- hosts: nagios-servers
+  become: true
+  tasks:
+    - include_role:
+        name: gravatt.nagios-commands
+
+- hosts: all
+  become: true
+  tasks:
+    - include_role:
+        name: gravatt.nagios-plugins
+      

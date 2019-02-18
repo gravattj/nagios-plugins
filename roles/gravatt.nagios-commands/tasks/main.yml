@@ -1,0 +1,8 @@
+---
+# tasks file for gravatt.nagios-commands
+
+- synchronize:
+    src: files/
+    dest: "{{ nag_commands_dest }}"
+    
+- shell: "chown -R {{ nag_commands_owner }}:{{ nag_commands_group }} {{ nag_commands_dest }}"    
