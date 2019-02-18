@@ -56,9 +56,11 @@ parse_cmd_line();
 main();
 
 if ($Criticals) {
+    printf "%s\n", get_perf_data();
     exit EXIT_CRITICAL;
 }
 elsif ($Warnings) {
+    printf "%s\n", get_perf_data();
     exit EXIT_WARNING;
 }
 else {
