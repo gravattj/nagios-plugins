@@ -1,8 +1,13 @@
 ---
 # tasks file for gravatt.nagios-commands
 
+- assert:
+    that:
+      - omd_user != ''
+      - omd_group != ''
+
 - synchronize:
     src: files/
     dest: "{{ nag_commands_dest }}"
     
-- shell: "chown -R {{ nag_commands_owner }}:{{ nag_commands_group }} {{ nag_commands_dest }}"    
+- shell: "chown -R {{ omd_user }}:{{ omd_group }} {{ nag_commands_dest }}"    

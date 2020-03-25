@@ -1,2 +1,5 @@
 ---
-# defaults file for gravatt.nagios-commands
+
+omd_user: ''
+omd_group: ''
+nag_commands_dest: "/omd/sites/{{ omd_group }}/etc/nagios/conf.d/commands"
