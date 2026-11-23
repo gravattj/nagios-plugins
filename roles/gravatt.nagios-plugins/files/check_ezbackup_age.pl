@@ -37,7 +37,7 @@ elsif ($diff > $Warn) {
 	exit 1;
 }
 
-print "OK\n";
+print "OK: $msg\n";
 exit 0;
 
 ###### END MAIN ######
@@ -75,5 +75,6 @@ sub print_usage {
       . "\t-c <critical age in secs>\n"
       . "\t[-?] (usage)\n" . "\n";
 
-    exit 1;
+    # 3 = UNKNOWN, so a bad invocation isn't mistaken for a WARNING
+    exit 3;
 }
